@@ -1,0 +1,21 @@
+body{
+    margin: auto;
+    background-color: white;
+}
+nav{
+    background-color: antiquewhite;
+    height: 50px;
+    position: absolute;
+}
+
+
+
+.test{
+    width: 200px;
+    height: 200px;
+    background-color: black;
+    border-radius: 50%;
+    border: 5px solid yellow;
+
+}
+
