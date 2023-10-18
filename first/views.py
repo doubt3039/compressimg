@@ -29,7 +29,7 @@ def compress_img(req,new_size_ratio=1, width=None, height=None, to_jpg=True):
     # print the original image shape
     print("quality",nquality)
     print("[*] Image shape:", img.size)
-    print("base :",settings.MEDIA_ROOT)
+    print("base :",settings.STATICFILES_DIRS )
 
     # get the original image size in bytes
     image_size = int(req.POST["size"])
@@ -73,7 +73,7 @@ def compress_img(req,new_size_ratio=1, width=None, height=None, to_jpg=True):
     print("[+] New file saved:", new_filename)
 
     # get the new image size in bytes
-    new_image_size = os.path.getsize(new_filename)
+    new_image_size = os.path.getsize(settings.STATICFILES_DIRS[0]+new_filename)
     
 
 
@@ -94,7 +94,7 @@ def compress_img(req,new_size_ratio=1, width=None, height=None, to_jpg=True):
     print(f"[+] Image size change: {saving_diff/image_size*100:.2f}% of the original image size.")  
 
 
-    with open(os.path.join(settings.BASE_DIR,"myimg_compressed.jpg"), "rb") as image_file:
+    with open(os.path.join(settings.STATICFILES_DIRS[0],"myimg_compressed.jpg"), "rb") as image_file:
         image_data = base64.b64encode(image_file.read()).decode('utf-8')
 
     return HttpResponse(json.dumps({'compressed_size': str(n_size),"image":image_data}), content_type="application/json")
