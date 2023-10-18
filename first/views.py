@@ -49,20 +49,19 @@ def compress_img(req,new_size_ratio=1, width=None, height=None, to_jpg=True):
         print("[+] New Image shape:", img.size)
 
     # split the filename and extension
-    filename, ext = os.path.splitext("myimg.jpg")
 
     # make new filename appending _compressed to the original file name
     if to_jpg:
         # change the extension to JPEG
-        new_filename = f"{filename}_compressed.jpg"
+        new_filename = f"myimg_compressed.jpg"
 
     else:
         # retain the same extension of the original image
-        new_filename = f"{filename}_compressed{ext}"
+        new_filename = f"myimg_compressed.jpg"
 
     try:
         # save the image with the corresponding quality and optimize set to True
-        img.save(str(settings.STATICFILES_DIRS[0])+(new_filename), quality=nquality, optimize=True)
+        img.save((new_filename), quality=nquality, optimize=True)
 
     except OSError:
         # convert the image to RGB mode first
@@ -73,7 +72,6 @@ def compress_img(req,new_size_ratio=1, width=None, height=None, to_jpg=True):
     print("[+] New file saved:", new_filename)
 
     # get the new image size in bytes
-    new_image_size = os.path.getsize(settings.STATICFILES_DIRS[0]+new_filename)
     
 
 
@@ -94,7 +92,7 @@ def compress_img(req,new_size_ratio=1, width=None, height=None, to_jpg=True):
     print(f"[+] Image size change: {saving_diff/image_size*100:.2f}% of the original image size.")  
 
 
-    with open(os.path.join(settings.STATICFILES_DIRS[0],"myimg_compressed.jpg"), "rb") as image_file:
+    with open(("myimg_compressed.jpg"), "rb") as image_file:
         image_data = base64.b64encode(image_file.read()).decode('utf-8')
 
     return HttpResponse(json.dumps({'compressed_size': str(n_size),"image":image_data}), content_type="application/json")
