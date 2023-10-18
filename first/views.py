@@ -29,7 +29,7 @@ def compress_img(req,new_size_ratio=1, width=None, height=None, to_jpg=True):
     # print the original image shape
     print("quality",nquality)
     print("[*] Image shape:", img.size)
-    print("base :",settings.STATICFILES_DIRS)
+    print("base :",settings.MEDIA_ROOT)
 
     # get the original image size in bytes
     image_size = int(req.POST["size"])
