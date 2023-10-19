@@ -93,7 +93,7 @@ def compress_img(req,new_size_ratio=1, width=None, height=None, to_jpg=True):
     print(f"[+] Image size change: {saving_diff/image_size*100:.2f}% of the original image size.")  
 
 
-    with open("/tmp/myimg_compressed.jpg"), "rb" as image_file:
+    with open(settings.BASE_DIR+"/tmp/myimg_compressed.jpg"), "rb" as image_file:
         image_data = base64.b64encode(image_file.read()).decode('utf-8')
 
     return HttpResponse(json.dumps({'compressed_size': str(n_size),"image":image_data}), content_type="application/json")
