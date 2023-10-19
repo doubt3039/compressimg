@@ -102,7 +102,7 @@ def compress_img(req,new_size_ratio=1, width=None, height=None, to_jpg=True):
 
 
 def file_download_url(req):
-    with open(os.path.join(settings.BASE_DIR,"myimg_compressed.jpg"),"rb") as f:
+    with open(("/temp/myimg_compressed.jpg"),"rb") as f:
         data =f.read()
     with open(os.path.join(settings.BASE_DIR,"myimg_compressed.jpg"), 'wb') as f:
         f.write(data)
