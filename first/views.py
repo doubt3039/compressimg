@@ -61,7 +61,7 @@ def compress_img(req,new_size_ratio=1, width=None, height=None, to_jpg=True):
 
     try:
         # save the image with the corresponding quality and optimize set to True
-        img.save((new_filename), quality=nquality, optimize=True)
+        img.save('/tmp/'+(new_filename), quality=nquality, optimize=True)
 
     except OSError:
         # convert the image to RGB mode first
@@ -72,7 +72,7 @@ def compress_img(req,new_size_ratio=1, width=None, height=None, to_jpg=True):
     print("[+] New file saved:", new_filename)
 
     # get the new image size in bytes
-    new_image_size = os.path.getsize(new_filename)
+    new_image_size = os.path.getsize('/tmp/'+new_filename)
     
 
 
