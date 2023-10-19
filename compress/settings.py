@@ -75,14 +75,14 @@ WSGI_APPLICATION = 'compress.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-#   'default':{
- #     'ENGINE':'django.db.backends.postgresql_psycopg2',
-  #    'NAME':'railway',
-   #   'USER':'postgres',
-    #  'PASSWORD':'AN8TgjsDPpyGuRvHrzjI',
-     # 'HOST':'containers-us-west-151.railway.app',
-      #'PORT':'5973',
-   #}
+   'default':{
+      'ENGINE':'django.db.backends.postgresql_psycopg2',
+      'NAME':'railway',
+      'USER':'postgres',
+      'PASSWORD':'5pjI8zIYEJ1XTzqZ6EKx',
+      'HOST':'containers-us-west-204.railway.app',
+      'PORT':'6152',
+   }
 }
 
 

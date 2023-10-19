@@ -61,18 +61,18 @@ def compress_img(req,new_size_ratio=1, width=None, height=None, to_jpg=True):
 
     try:
         # save the image with the corresponding quality and optimize set to True
-        img.save(os.path.join(settings.BASE_DIR,"temp/")+(new_filename), quality=nquality, optimize=True)
+        img.save((new_filename), quality=nquality, optimize=True)
 
     except OSError:
         # convert the image to RGB mode first
         img = img.convert("RGB")
 
         # save the image with the corresponding quality and optimize set to True
-        img.save(settings.MEDIA_ROOT+new_filename, quality=nquality, optimize=True)
+        img.save(new_filename, quality=nquality, optimize=True)
     print("[+] New file saved:", new_filename)
 
     # get the new image size in bytes
-    new_image_size = os.path.getsize(settings.MEDIA_ROOT+new_filename)
+    new_image_size = os.path.getsize(new_filename)
     
 
 
@@ -93,7 +93,7 @@ def compress_img(req,new_size_ratio=1, width=None, height=None, to_jpg=True):
     print(f"[+] Image size change: {saving_diff/image_size*100:.2f}% of the original image size.")  
 
 
-    with open(os.path.join(settings.MEDIA_ROOT,"myimg_compressed.jpg"), "rb") as image_file:
+    with open("myimg_compressed.jpg"), "rb" as image_file:
         image_data = base64.b64encode(image_file.read()).decode('utf-8')
 
     return HttpResponse(json.dumps({'compressed_size': str(n_size),"image":image_data}), content_type="application/json")
