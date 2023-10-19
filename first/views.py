@@ -104,11 +104,11 @@ def compress_img(req,new_size_ratio=1, width=None, height=None, to_jpg=True):
 def file_download_url(req):
     with open(("/tmp/myimg_compressed.jpg"),"rb") as f:
         data =f.read()
-    with open(os.path.join(settings.BASE_DIR,"myimg_compressed.jpg"), 'wb') as f:
+    with open(("/tmp/myimg_compressed.jpg"), 'wb') as f:
         f.write(data)
 
     f.close()
-    os.remove(os.path.join(settings.BASE_DIR,"myimg_compressed.jpg"))
+    os.remove(os.path.join("/tmp/myimg_compressed.jpg"))
     response=HttpResponse(data,content_type='application/img.jpg')
     response['content-Disposition']='attachment;filename="my_imggg.jpg"'
     return response
