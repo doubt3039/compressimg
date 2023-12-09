@@ -59,7 +59,7 @@ function up(event){
     var k=URL.createObjectURL(event.target.files[0]);
     console.log(imgg.src)
     console.log(k.toString());
-
+    var formData = new FormData();
 
     formData.append('file', pile[0]);
     formData.append("csrfmiddlewaretoken", $("input[name=csrfmiddlewaretoken]").val())
