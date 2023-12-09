@@ -1,6 +1,5 @@
 var s="";
 var u="";
-var formData = new FormData();
 
 function uploadbtn(){
     document.getElementsByClassName("upload_file")[0].click();

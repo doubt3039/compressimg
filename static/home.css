@@ -639,4 +639,25 @@ animation-delay: -0.15s;
     transform: rotate(360deg);
 }
 }
+
+
+
+
+
+
+/*responsive design*/
+
+@media only screen and (max-width:1225px) {
+    .main_cont{
+    }
+
+    .drag_and_drop{
+        width: 80vw;
+    }
+
+    .bt_nav{
+        bottom: 70px;
+    }
+}
+
   

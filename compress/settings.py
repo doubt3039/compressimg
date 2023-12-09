@@ -24,7 +24,7 @@ print(BASE_DIR)
 SECRET_KEY = 'django-insecure-z!4g(+#5@k$a)e+@*aqh9w#i04)s7^u9gsul@(##50v_s%-npo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = [".vercel.app",".now.sh","127.0.0.1","10.12.185.79"]
 
 
@@ -74,16 +74,16 @@ WSGI_APPLICATION = 'compress.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-   'default':{
-      'ENGINE':'django.db.backends.postgresql_psycopg2',
-      'NAME':'railway',
-      'USER':'postgres',
-      'PASSWORD':'5pjI8zIYEJ1XTzqZ6EKx',
-      'HOST':'containers-us-west-204.railway.app',
-      'PORT':'6152',
-   }
-}
+#DATABASES = {
+   #'default':{
+    #  'ENGINE':'django.db.backends.postgresql_psycopg2',
+     # 'NAME':'railway',
+      #'USER':'postgres',
+      #'PASSWORD':'5pjI8zIYEJ1XTzqZ6EKx',
+      #'HOST':'containers-us-west-204.railway.app',
+      #'PORT':'6152',
+   #}
+#}
 
 
 # Password validation

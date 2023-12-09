@@ -6,6 +6,8 @@ import json
 from django.http import HttpResponse
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
+from django.core.files.storage import FileSystemStorage
+
 
 
 # Create your views here.
@@ -20,6 +22,8 @@ def compress_img(req,new_size_ratio=1, width=None, height=None, to_jpg=True):
     img = Image.open(image_name)
     print(req.POST["quality"])
     print(img.size)
+    fs=FileSystemStorage()
+    fnn=fs.save("ready.jpg",image_name)
     if req.POST["quality"]=='b':
         nquality=90
         new_size_ratio=1.0
@@ -33,6 +37,7 @@ def compress_img(req,new_size_ratio=1, width=None, height=None, to_jpg=True):
 
     # get the original image size in bytes
     image_size = int(req.POST["size"])
+
     print(image_size)
 
     # print the size before compression/resizing
